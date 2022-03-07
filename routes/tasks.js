@@ -1,4 +1,4 @@
-import { router } from "express"
+import { Router } from "express"
 import * as tasksCtrl from "../controllers/tasks.js"
 
 const router = Router()

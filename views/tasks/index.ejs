@@ -1,0 +1,14 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+<section>
+<h1>Tasks!</h1>
+<h2>Tasks assigned ot you</h2>
+<ul>
+  <% tasks.forEach(task => { %>
+   <li> <%= task.description%> is <% task.completed ? "done" : "pending"%> </li>
+  <% }) %>
+</ul>
+</section>
+
+
+<%- include('../partials/footer') %>
