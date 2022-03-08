@@ -1,6 +1,20 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 <section>
+  <% if (user) { %>
+    <h2>Assign a task!</h2>
+    <form action="/tasks" method="POST">
+      <label>
+        Description:
+        <input type="text" name="description" autocomplete="off">
+      </label>
+      <label>
+        Completed?
+        <input type="checkbox" name="completed">
+      </label>
+      <button type="submit">Add task</button>
+    </form>
+  <% } %>
 <h1>Tasks!</h1>
 <h2>Tasks assigned ot you</h2>
 <ul>

@@ -6,6 +6,7 @@ function index(req, res){
     res.render('tasks/index', {
       tasks, 
       description:"tasked",
+      user: req.user ? req.user: null,
     })
   })
   .catch(err => {
