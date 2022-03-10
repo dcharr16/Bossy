@@ -4,19 +4,27 @@
 <section>
   <p>Task's assigned to<%task.owner.name%></p>
   <h1><%=task.description%> </h1>
-  <h2> this task is <%task.completed ? "completed!" : "pending"%> </h2>
+  <h2> this task is <%=task.completed ? "completed!" : "pending"%> </h2>
   
+  <% if (user) { %>
   <!-- restrict owner to change to completed -->
   <form 
-      action="/tasks/<%= Task._id %>/flip-completed?_method=PATCH"
+      action="/tasks/<%=task._id %>/completed?_method=PATCH"
       method="POST"
     >
       <button class="btn" type="submit">
-        change task to <%= taco.completed ? "pending" : "completed" %> 
+        change task to <%= task.completed ? "pending" : "completed" %> 
       </button>
     </form>
-
-
+  <% } %>
+  <% if (task.owner.equals(user?.profile._id)) { %>
+    <form action="/tasks/<%= task._id %>/edit" method="GET">
+      <button class="btn" type="submit">Edit this Task 🚧</button>
+    </form>
+    <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete this Task</button>
+    </form>
+  <% } %>
 </section>
 
 

@@ -7,6 +7,7 @@ const router = Router()
 router.get('/', tasksCtrl.index)
 router.post('/', isLoggedIn, tasksCtrl.create)
 router.get('/:id', isLoggedIn, tasksCtrl.show)
+router.patch('/:id/completed', isLoggedIn, tasksCtrl.completed )
 // router.get('/new',tasksCtrl.new)
 
 export {

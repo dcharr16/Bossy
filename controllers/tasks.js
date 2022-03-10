@@ -37,7 +37,8 @@ function show(req, res) {
     console.log(task)
     res.render('tasks/show', {
       task,
-      description:" testing testing 123"
+      description:" testing testing 123",
+      
     })
   })
 
@@ -47,10 +48,30 @@ function show(req, res) {
   })
 }
 
+function completed(req, res){
+  console.log("COMPLETED!!!!");
+  console.log(Task);
+  console.log(req.params.id);
+  Task.findById(req.params.id)
+  .then(task => {
+    console.log(task._id);
+    task.completed = !task.completed
+    task.save()
+    .then(() => {
+      res.redirect(`/tasks/${task._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/tasks")
+  })
+
+}
 export {
    index,
    create,
    show,
+   completed,
   
 
 }

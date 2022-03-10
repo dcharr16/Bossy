@@ -17,9 +17,8 @@
    <li>
     <a href="/tasks/<%=task._id%>"><%= task.description%></a>
     is 
-    <% task.completed ? "done" : "pending"%> 
-     Completed?
-        <input type="checkbox" name="completed">
+    <%= task.completed ? "done" : "pending"%> 
+        
   </li>
   <% }) %>
 </ul>
