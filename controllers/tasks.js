@@ -16,6 +16,7 @@ function index(req, res){
 }
 
 function create(req, res) {
+  req.body.completed = false
   req.body.owner = req.user.profile._id
   Task.create(req.body)
   .then(task => {
@@ -28,8 +29,22 @@ function create(req, res) {
 
 }
 
-function show(req,res) {
-  Task.findById
+function show(req, res) {
+  Task.findById(req.params.id)
+  .populate ("owner")
+  .populate ("author")
+  .then (task => {
+    console.log(task)
+    res.render('tasks/show', {
+      task,
+      description:" testing testing 123"
+    })
+  })
+
+  .catch(err => {
+    console.log(err)
+    res.redirect("/tasks")
+  })
 }
 
 export {

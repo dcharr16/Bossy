@@ -1,7 +1,23 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<section>
+  <p>Task's assigned to<%task.owner.name%></p>
+  <h1><%=task.description%> </h1>
+  <h2> this task is <%task.completed ? "completed!" : "pending"%> </h2>
+  
+  <!-- restrict owner to change to completed -->
+  <form 
+      action="/tasks/<%= Task._id %>/flip-completed?_method=PATCH"
+      method="POST"
+    >
+      <button class="btn" type="submit">
+        change task to <%= taco.completed ? "pending" : "completed" %> 
+      </button>
+    </form>
 
+
+</section>
 
 
 <%- include('../partials/footer') %>
