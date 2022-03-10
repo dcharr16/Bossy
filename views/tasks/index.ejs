@@ -5,21 +5,22 @@
     <h2>Assign a task!</h2>
     <form action="/tasks" method="POST">
       <label>
-        Description:
-        <input type="text" name="description" autocomplete="off">
-      </label>
-      <label>
-        Completed?
-        <input type="checkbox" name="completed">
+        <input type="text" name= "description" value =" New Task" autocomplete="off" required>
       </label>
       <button type="submit">Add task</button>
     </form>
   <% } %>
-<h1>Tasks!</h1>
-<h2>Tasks assigned ot you</h2>
+<h1>All tasks!</h1>
+<h2>Tasks assigned to you</h2>
 <ul>
   <% tasks.forEach(task => { %>
-   <li> <%= task.description%> is <% task.completed ? "done" : "pending"%> </li>
+   <li>
+    <a href="/tasks/<%=task._id%>"><%= task.description%></a>
+    is 
+    <% task.completed ? "done" : "pending"%> 
+     Completed?
+        <input type="checkbox" name="completed">
+  </li>
   <% }) %>
 </ul>
 </section>
