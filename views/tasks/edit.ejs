@@ -1,2 +1,15 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit the task</h1>
+<form action="/tasks/<%= task._id %>?_method=PUT" method="POST">
+  <label>
+    <input type="text" name="description" value="<%=task.description%>" autocomplete="off" required>
+  </label>
+  <%= task.completed ? "done" : "pending"%> 
+  <button type="submit">Edit task</button>
+</form>
+</section>
+
+<%- include('../partials/footer') %>

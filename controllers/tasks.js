@@ -49,9 +49,6 @@ function show(req, res) {
 }
 
 function completed(req, res){
-  console.log("COMPLETED!!!!");
-  console.log(Task);
-  console.log(req.params.id);
   Task.findById(req.params.id)
   .then(task => {
     console.log(task._id);
@@ -65,13 +62,67 @@ function completed(req, res){
     console.log(err)
     res.redirect("/tasks")
   })
-
 }
+
+function edit(req, res) {
+  Task.findById(req.params.id)
+  .then(task => {
+    res.render("tasks/edit", {
+      task,
+      description: "edit",
+      user: req.user ? req.user: null,
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/tasks")
+  })
+}
+
+function update(req, res) {
+  console.log("i hit this route !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+  Task.findById(req.params.id)
+  .then(task => {
+    if (task.owner.equals(req.user.profile._id)) {
+      req.body.description
+      task.updateOne(req.body, {new: true})
+      .then(() => {
+        res.redirect(`/tasks/${req.params.id}`)
+      })
+    } else {
+      throw new Error("NOT AUTHORIZED")
+    }
+  })
+  .catch(err => {
+    console.log("the error:", err)
+    res.redirect(`/tasks`)
+  })
+}
+function deleteTask(req, res){
+  Task.findById(req.params.id)
+  .then (task => {
+    if(task.owner.equals(req.user.profile._id)) {
+      task.delete()
+      .then (()=> {
+      res.redirect('/tasks')
+    })
+  } else {
+    throw new Error ("NOT AUTHORIZED")
+  }
+})
+  .catch(err => {
+    console.log("the error:", err)
+    res.redirect("/tacos")
+  })
+}
+
+
 export {
    index,
    create,
    show,
    completed,
-  
-
+   edit,
+   update,
+   deleteTask as delete,
 }

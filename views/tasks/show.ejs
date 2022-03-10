@@ -18,9 +18,12 @@
     </form>
   <% } %>
   <% if (task.owner.equals(user?.profile._id)) { %>
-    <form action="/tasks/<%= task._id %>/edit" method="GET">
+    <% if (task.completed === false) {%>
+      <form action="/tasks/<%= task._id%>/edit" method="GET">
       <button class="btn" type="submit">Edit this Task 🚧</button>
     </form>
+    <% } %>
+    <!-- make so only owner or author can delete -->
     <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
       <button class="btn" type="submit">Delete this Task</button>
     </form>
