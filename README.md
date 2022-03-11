@@ -6,6 +6,7 @@ Welcome to Bossy! Bossy is a CRUD application that allows users to create tasks 
 
 
 ## To access the app click here
+https://bossy-app.herokuapp.com/
 
 
 ## Motivation:
@@ -30,6 +31,7 @@ Bossy is tool designed to help boost productivity and focus. Accountability part
 
 ## User Experience:
 
+David and Kim are part of a larger wine and cheese tasting club. David is out of town but didnt want to miss out on future tasting sessions. So Kim logged into Bossy and marked the check list items. David was able find the bottle and cheeese at the store and leave a comment once it was completed.
 
 
 
