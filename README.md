@@ -11,7 +11,7 @@ https://bossy-app.herokuapp.com/
 
 ## Motivation:
 
-Bossy is tool designed to help boost productivity and focus. Accountability partner's provide checklist items to peers and keep others on track. Bossy is designed for those short-term more immediate task assignments; from partner lead workout plans, to dietary checklists or simply addressing theose important tasks that always seem to get away from us from time to time. Bossy will track your progress and notify the assigning partner of your progress.
+Bossy is tool designed to help boost productivity and focus. Accountability partner's provide checklist items to peers and keep others on track. Bossy is designed for those short-term more immediate task assignments; from partner lead workout plans, to dietary checklists or simply addressing those important tasks that always seem to get away from us from time to time. Bossy will track your progress and notify the assigning partner of your progress.
 
 
 ## Prototype View:
@@ -31,7 +31,7 @@ Bossy is tool designed to help boost productivity and focus. Accountability part
 
 ## User Experience:
 
-David and Kim are part of a larger wine and cheese tasting club. David is out of town but didnt want to miss out on future tasting sessions. So Kim logged into Bossy and marked the check list items. David was able find the bottle and cheeese at the store and leave a comment once it was completed.
+David and Kim are part of a larger wine and cheese tasting club. David is out of town but didnt want to miss out on future tasting sessions. So Kim logged into Bossy and marked the check list items. David was able find the bottle and cheese at the store and leave a comment once it was completed.
 
 
 
