@@ -11,7 +11,9 @@ router.patch('/:id/completed', isLoggedIn, tasksCtrl.completed)
 router.get('/:id/edit', isLoggedIn, tasksCtrl.edit)
 router.put('/:id', isLoggedIn, tasksCtrl.update)
 router.delete('/:id', isLoggedIn, tasksCtrl.delete)
-// router.get('/new',tasksCtrl.new)
+router.post('/:id/comments', isLoggedIn, tasksCtrl.createComment)
+
+
 
 export {
   router

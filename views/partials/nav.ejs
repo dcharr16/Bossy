@@ -4,10 +4,12 @@
 </head>
 <body>
   <nav>
-    <a href="/tasks">Tasks</a>
-    <a href="/profiles">Profiles</a>
+    <a href="/tasks" class="fa-solid fa-list-check">Tasks</a>
+    <a href="/profiles" class="fa-solid fa-user-group">Profiles</a>
     <% if (user) { %>
-      <a href="/auth/logout">👋</a>
+      <a href="/auth/logout">
+        <button type="submit">Logout</button>
+      </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">

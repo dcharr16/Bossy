@@ -1,5 +1,6 @@
 import { Task } from "../models/task.js"
 
+
 function index(req, res){
   Task.find({})
   .then(tasks => {
@@ -80,7 +81,6 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  console.log("i hit this route !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
   Task.findById(req.params.id)
   .then(task => {
     if (task.owner.equals(req.user.profile._id)) {
@@ -116,6 +116,17 @@ function deleteTask(req, res){
   })
 }
 
+function createComment(req, res) {
+  Task.findById(req.params.id, function (err, task) {
+    task.comments.push(req.body)
+    task.save(function(err){
+      res.redirect(`/tasks/${task._id}`)
+    })
+  })
+  
+}
+
+
 
 export {
    index,
@@ -125,4 +136,5 @@ export {
    edit,
    update,
    deleteTask as delete,
+   createComment,
 }

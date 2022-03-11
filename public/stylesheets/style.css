@@ -68,7 +68,10 @@ section {
 }
 
 a {
-  color: #00B7FF;
+  color: #054f6d;
+}
+a:hover{
+  color: rgb(114, 123, 238);
 }
 
 pre {
