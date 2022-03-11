@@ -112,7 +112,7 @@ function deleteTask(req, res){
 })
   .catch(err => {
     console.log("the error:", err)
-    res.redirect("/tacos")
+    res.redirect("/tasks")
   })
 }
 
@@ -122,6 +122,10 @@ function createComment(req, res) {
     task.save(function(err){
       res.redirect(`/tasks/${task._id}`)
     })
+  })
+  .catch(err => {
+    console.log("the error:", err)
+    res.redirect("/tasks")
   })
   
 }
