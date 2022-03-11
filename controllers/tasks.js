@@ -123,10 +123,6 @@ function createComment(req, res) {
       res.redirect(`/tasks/${task._id}`)
     })
   })
-  .catch(err => {
-    console.log("the error:", err)
-    res.redirect("/tasks")
-  })
   
 }
 
