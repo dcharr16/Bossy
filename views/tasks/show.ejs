@@ -7,7 +7,12 @@
   <p>Task's assigned to <%=user.profile.name%></p>
   <h1><%=task.description%> </h1>
   <h2> this task is <%=task.completed ? "completed!" : "pending"%> </h2>
-  <h2> comments: <%=task.comments%> </h2>
+  <% task.comments.forEach(comment => { %>
+    <h2> comments: <%=comment.content%> </h2>
+   
+  <% }) %>
+
+  
   
   <% if (user) { %>
   <!-- restrict owner to change to completed -->
